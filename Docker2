@@ -1,0 +1,130 @@
+1. GIT Commands (Run in terminal)
+
+Initialize Git Repo
+
+git init
+
+Add files and commit
+
+git add . git commit -m "Initial commit"
+
+Remote repo setup
+
+git remote add origin <repo-url> git push -u origin master
+
+Create and switch branch
+
+git checkout -b new-branch
+
+Merge branches
+
+git checkout master git merge new-branch
+
+2. JENKINS / DOCKER PROGRAMS
+
+JAVA (Save as Main.java)
+
+public class Main { public static void main(String[] args) { // a) Hello World System.out.println("Hello World");
+
+// b) Student Details
+    System.out.println("Name: Lasya");
+    System.out.println("Roll No: 245122749062");
+    System.out.println("Department: AIML");
+
+    // c) Sum and Avg of first 10 numbers
+    int sum = 0;
+    for(int i = 1; i <= 10; i++) sum += i;
+    double avg = sum / 10.0;
+    System.out.println("Sum: " + sum);
+    System.out.println("Average: " + avg);
+}
+
+}
+
+Compile: javac Main.java
+
+Run: java Main
+
+PYTHON (Save as main.py)
+
+a) Hello World
+
+print("Hello World")
+
+b) Student Details
+
+print("Name: Lasya") print("Roll No: 245122749062") print("Department: AIML")
+
+c) Sum and Avg of 1 to 10
+
+sum_val = sum(range(1, 11)) avg = sum_val / 10 print("Sum:", sum_val) print("Average:", avg)
+
+WEBAPP (HTML, CSS, JS)
+
+a) dept.html
+
+<!DOCTYPE html><html>
+<body>
+    <h1>AIML</h1>
+    <h2>AIML</h2>
+    <h3>AIML</h3>
+    <h4>AIML</h4>
+    <h5>AIML</h5>
+    <h6>AIML</h6>
+</body>
+</html>b) student.html
+
+<!DOCTYPE html><html>
+<head>
+<style>
+    .student {
+        text-align: center;
+        color: blue;
+        background-color: lightyellow;
+    }
+</style>
+</head>
+<body>
+<div class="student">
+    <h2>Name: Lasya</h2>
+    <h3>Roll No: 245122749062</h3>
+    <h4>Department: AIML</h4>
+</div>
+</body>
+</html>c) login.html
+
+<!DOCTYPE html><html>
+<head>
+<script>
+function validateForm() {
+    var u = document.getElementById("username").value;
+    var p = document.getElementById("password").value;
+    if (u == "" || p == "") {
+        alert("Username and Password must be filled out!");
+        return false;
+    }
+    alert("Login Successful!");
+    return true;
+}
+</script>
+</head>
+<body>
+<form onsubmit="return validateForm()">
+    Username: <input type="text" id="username"><br>
+    Password: <input type="password" id="password"><br>
+    <input type="submit" value="Login">
+</form>
+</body>
+</html>3. DOCKER SETUP (Optional)
+
+Dockerfile for Java
+
+FROM openjdk:11 COPY Main.java . RUN javac Main.java CMD ["java", "Main"]
+
+Dockerfile for Python
+
+FROM python:3.8 COPY main.py . CMD ["python", "main.py"]
+
+Dockerfile for WebApp
+
+FROM nginx:alpine COPY dept.html /usr/share/nginx/html/index.html
